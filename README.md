@@ -36,7 +36,7 @@ String Replacements
 
 ```
 cd {Project Path}/src/lib
-git submodule add https://github.com/SergioRando/js-lite.git
+git submodule add https://github.com/SergioRando/js-gallery.git
 ```
 _Note: don't forget to add notice about library license to yours project_
 
@@ -45,10 +45,10 @@ String Replacements
 * _{Project Path}_ - path to drive with symlinks support (**NOT FAT32/NTFS/exFAT**)
 ```
 cd {Project Path}/src/lib
-git submodule deinit js-lite
-git rm js-lite
-git commit -m "Removed submodule js-lite"
+git submodule deinit js-gallery
+git rm js-gallery
+git commit -m "Removed submodule js-gallery"
 cd {Project Path}
-rm -rf ./git/modules/src/lib/js-lite
+rm -rf ./git/modules/src/lib/js-gallery
 ```
 _Note: be careful executing **rm** commands! It delete files permanenlty!_
