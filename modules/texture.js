@@ -16,14 +16,14 @@
 
 'use strict';
 
-import { Galery } from "./gallery.js"
+import { GalleryImpl } from "./../globals/gallery.js"
 import { HTMLTexture, TextureImpl } from "./../../../include/texture.js"
 
 /** @abstract */
 export class Texture extends TextureImpl {
 	/**
 		* @param {string | null} sKey 
-		* @param {Galery | null} oGalery 
+		* @param {GalleryImpl | null} oGalery 
 		* @param {HTMLTexture | null} domElement 
 		*/
 	constructor(sKey, oGalery, domElement) {
@@ -38,7 +38,7 @@ export class Texture extends TextureImpl {
 export class TextureSurface extends Texture {
 	/**
 		* @param {string | null} sKey 
-		* @param {Galery | null} oGalery 
+		* @param {GalleryImpl | null} oGalery 
 		* @param {HTMLCanvasElement} domCanvas 
 		*/
 	constructor(sKey, oGalery, domCanvas) {
@@ -64,7 +64,7 @@ export class TextureSurface extends Texture {
 export class TextureImage extends Texture {
 	/**
 		* @param {string | null} sKey 
-		* @param {Galery | null} oGalery 
+		* @param {GalleryImpl | null} oGalery 
 		* @param {HTMLImageElement} domImage 
 		*/
 	constructor(sKey, oGalery, domImage) {

@@ -16,12 +16,13 @@
 
 'use strict';
 
-import { HTMLTexture } from "./../../../include/texture.js"
-import { TextureImage, TextureSurface } from "./texture.js"
+import { HTMLTexture } from "../../../include/texture.js"
+import { TextureImage, TextureSurface } from "./../modules/texture.js"
+import { bindOnDocumentReady } from "./../../../include/event.js"
 
 /** @typedef {Object<string, TextureImage|TextureSurface>} TextureList */ var TextureList;
 
-export class Galery {
+export class GalleryImpl {
 	/** @param {HTMLElement} domContainer */
 	constructor(domContainer) {
 		this.domContainer = domContainer;
@@ -103,3 +104,17 @@ export class Galery {
 		this.dictList = {};
 	}
 }
+
+/** @type {GalleryImpl | null} */
+export let Gallery = null;
+
+function initializeGalery() {
+	if (platform.document !== undefined) {
+		let domGallery = /** @type {HTMLElement} */ ( platform.document.createElement('div') );
+		domGallery.style.display = 'none';
+		platform.document.body.appendChild(domGallery);
+		Gallery = new GalleryImpl(domGallery);
+	}
+}
+
+bindOnDocumentReady(initializeGalery);
