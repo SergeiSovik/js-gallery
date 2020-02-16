@@ -18,7 +18,6 @@
 
 import { HTMLTexture } from "../../../include/texture.js"
 import { TextureImage, TextureSurface } from "./../modules/texture.js"
-import { bindOnDocumentReady } from "./../../../include/event.js"
 
 /** @typedef {Object<string, TextureImage|TextureSurface>} TextureList */ var TextureList;
 
@@ -55,7 +54,7 @@ export class GalleryImpl {
 	}
 
 	/**
-		* @param {string} sKey 
+		* @param {string | null} sKey 
 		* @param {HTMLImageElement} domImage 
 		* @returns {TextureImage}
 		*/
@@ -105,16 +104,14 @@ export class GalleryImpl {
 	}
 }
 
-/** @type {GalleryImpl | null} */
-export let Gallery = null;
+/** @type {GalleryImpl} */
+export let Gallery = initializeGalery();
 
 function initializeGalery() {
 	if (platform.document !== undefined) {
 		let domGallery = /** @type {HTMLElement} */ ( platform.document.createElement('div') );
 		domGallery.style.display = 'none';
 		platform.document.body.appendChild(domGallery);
-		Gallery = new GalleryImpl(domGallery);
+		return new GalleryImpl(domGallery);
 	}
 }
-
-bindOnDocumentReady(initializeGalery);
