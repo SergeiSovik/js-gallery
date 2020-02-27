@@ -16,4 +16,4 @@
 
 "use strict";
 
-//platform.console.log('js-gallery', 'Skip Test');
+platform.console.log('js-gallery', 'Skip Test');
